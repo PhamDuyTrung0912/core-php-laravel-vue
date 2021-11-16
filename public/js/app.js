@@ -2065,11 +2065,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _axios_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axios/index */ "./resources/js/axios/index.js");
 //
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    _axios_index__WEBPACK_IMPORTED_MODULE_0__["default"].getArticles().then(function (res) {
+      console.log("data-article", res.data);
+    })["catch"]();
+  }
+});
 
 /***/ }),
 
@@ -2092,6 +2100,51 @@ new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 }).$mount("#app");
+
+/***/ }),
+
+/***/ "./resources/js/axios/index.js":
+/*!*************************************!*\
+  !*** ./resources/js/axios/index.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var APIService = /*#__PURE__*/function () {
+  function APIService() {
+    _classCallCheck(this, APIService);
+
+    this.axios = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+      baseURL: process.env.VUE_APP_API_URL
+    });
+  }
+
+  _createClass(APIService, [{
+    key: "getArticles",
+    value: function getArticles() {
+      return this.axios.get("api/articles");
+    }
+  }]);
+
+  return APIService;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new APIService());
 
 /***/ }),
 
@@ -31872,6 +31925,18 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
