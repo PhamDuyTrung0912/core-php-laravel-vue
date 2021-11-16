@@ -19,7 +19,7 @@ class ArticlesSeeder extends Seeder
     {
         $footer = Article::where('title', 'Blockchain')->first();
         if (!$footer) {
-            DB::table('sort_image')->insert([
+            DB::table('articles')->insert([
                 'title' => 'Blockchain',
                 'description' => 'Platform Celo Crypto',
             ]);
