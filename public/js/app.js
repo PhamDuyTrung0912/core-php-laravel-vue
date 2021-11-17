@@ -2074,11 +2074,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      articles: []
+    };
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      console.log("Submit");
+      var data = {
+        title: "Title create new",
+        description: "Desciption create new"
+      };
+      _axios_index__WEBPACK_IMPORTED_MODULE_0__["default"].addArticle(data).then(function (res) {
+        console.log("create-article", res.data);
+      })["catch"]();
+    }
+  },
   created: function created() {
+    var _this = this;
+
     _axios_index__WEBPACK_IMPORTED_MODULE_0__["default"].getArticles().then(function (res) {
       console.log("data-article", res.data);
+      _this.articles = res.data;
     })["catch"]();
   }
 });
@@ -2151,6 +2185,11 @@ var APIService = /*#__PURE__*/function () {
     key: "getArticles",
     value: function getArticles() {
       return this.axios.get("api/articles");
+    }
+  }, {
+    key: "addArticle",
+    value: function addArticle(data) {
+      return this.axios.post("api/articles", data);
     }
   }]);
 
@@ -2230,14 +2269,39 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use((vuetify__WEBPACK_IMPORTED_MODUL
 
   },
   theme: {
-    dark: false
-  },
-  themes: {
-    light: {
-      primary: "#4682b4",
-      secondary: "#b0bec5",
-      accent: "#8c9eff",
-      error: "#b71c1c"
+    options: {
+      customProperties: true
+    },
+    themes: {
+      light: {
+        primary: "#3C8DBC",
+        secondary: "#2196f3",
+        tertiary: "#FFFFFF",
+        accent: "#3C8DBC",
+        error: "#f44336",
+        warning: "#FFB300",
+        // amber darken-1
+        info: "#80DEEA",
+        // cyan lighten-3
+        success: "#4caf50",
+        tabColor: "#FDECCD",
+        gray: "#aaa"
+      },
+      dark: {
+        primary: "#0097A7",
+        // cyan darken-2
+        secondary: "#2196f3",
+        tertiary: "tertiary",
+        accent: "#3C8DBC",
+        error: "#f44336",
+        warning: "#FFB300",
+        // amber darken-1
+        info: "#80DEEA",
+        // cyan lighten-3
+        success: "#4caf50",
+        tabColor: "#FDECCD",
+        gray: "#aaa"
+      }
     }
   }
 }));
@@ -38057,6 +38121,42 @@ var render = function () {
         "v-alert",
         { attrs: { border: "top", color: "red lighten-2", dark: "" } },
         [_vm._v("\n        I'm an alert with a top border and red color\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "v-btn",
+        {
+          staticClass: "white--text",
+          attrs: { color: "primary" },
+          on: { click: _vm.handleSubmit },
+        },
+        [_vm._v("Submit")]
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        { staticClass: "mx-auto", attrs: { tile: "" } },
+        _vm._l(_vm.articles, function (item, index) {
+          return _c(
+            "v-list-item",
+            { key: index },
+            [
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", [_vm._v(_vm._s(item.title))]),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", [
+                    _vm._v(_vm._s(item.description)),
+                  ]),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        }),
+        1
       ),
     ],
     1

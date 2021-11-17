@@ -5,20 +5,37 @@ Vue.use(Vuetify);
 
 import "vuetify/dist/vuetify.min.css";
 
-
 export default new Vuetify({
     icons: {
         iconfont: "md", // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4'
     },
     theme: {
-        dark: false,
-    },
-    themes: {
-        light: {
-            primary: "#4682b4",
-            secondary: "#b0bec5",
-            accent: "#8c9eff",
-            error: "#b71c1c",
+        options: { customProperties: true },
+        themes: {
+            light: {
+                primary: "#3C8DBC",
+                secondary: "#2196f3",
+                tertiary: "#FFFFFF",
+                accent: "#3C8DBC",
+                error: "#f44336",
+                warning: "#FFB300", // amber darken-1
+                info: "#80DEEA", // cyan lighten-3
+                success: "#4caf50",
+                tabColor: "#FDECCD",
+                gray: "#aaa",
+            },
+            dark: {
+                primary: "#0097A7", // cyan darken-2
+                secondary: "#2196f3",
+                tertiary: "tertiary",
+                accent: "#3C8DBC",
+                error: "#f44336",
+                warning: "#FFB300", // amber darken-1
+                info: "#80DEEA", // cyan lighten-3
+                success: "#4caf50",
+                tabColor: "#FDECCD",
+                gray: "#aaa",
+            },
         },
     },
 });

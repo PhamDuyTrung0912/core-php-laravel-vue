@@ -10,6 +10,9 @@ class APIService {
     getArticles() {
         return this.axios.get("api/articles");
     }
+    addArticle(data){
+        return this.axios.post("api/articles",data);
+    }
 }
 
 export default new APIService();
