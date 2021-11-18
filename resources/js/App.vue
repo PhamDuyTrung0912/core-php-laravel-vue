@@ -1,33 +1,100 @@
 <template>
     <v-app app>
-        <v-alert border="top" color="red lighten-2" dark>
-            I'm an alert with a top border and red color
-        </v-alert>
-        <v-btn @click="handleSubmit" color="primary" class="white--text"
-            >Submit</v-btn
-        >
+        <v-container>
+            <v-row>
+                <v-col cols="4">
+                    <v-card class="pa-3">
+                        <line-chart
+                            :height="250"
+                            :data="chartData"
+                            :options="chartOptions"
+                        ></line-chart>
+                    </v-card>
+                </v-col>
+                <v-col cols="8">
+                    <v-card class="mx-auto">
+                        <v-list subheader two-line>
+                            <v-list-item
+                                v-for="file in files"
+                                :key="file.title"
+                            >
+                                <v-list-item-avatar>
+                                    <v-icon
+                                        :class="file.color"
+                                        dark
+                                        v-text="file.icon"
+                                    ></v-icon>
+                                </v-list-item-avatar>
 
-        <v-card class="mx-auto" tile>
-            <v-list-item v-for="(item, index) in articles" :key="index">
-                <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                    <v-list-item-subtitle>{{
-                        item.description
-                    }}</v-list-item-subtitle>
-                </v-list-item-content>
-            </v-list-item>
-        </v-card>
+                                <v-list-item-content>
+                                    <v-list-item-title
+                                        v-text="file.title"
+                                    ></v-list-item-title>
+
+                                    <v-list-item-subtitle
+                                        v-text="file.subtitle"
+                                    ></v-list-item-subtitle>
+                                </v-list-item-content>
+
+                                <v-list-item-action>
+                                    <v-btn icon>
+                                        <v-icon color="grey lighten-1"
+                                            >mdi-information</v-icon
+                                        >
+                                    </v-btn>
+                                </v-list-item-action>
+                            </v-list-item>
+                        </v-list>
+                    </v-card>
+                </v-col>
+            </v-row>
+        </v-container>
     </v-app>
 </template>
 
 <script>
 import apiServices from "./axios/index";
+import LineChart from "./components/LineChart";
 export default {
+    components: { LineChart },
     data() {
         return {
+            files: [
+                {
+                    color: "blue",
+                    icon: "mdi-clipboard-text",
+                    subtitle: "Jan 20, 2014",
+                    title: "Vacation itinerary",
+                },
+                {
+                    color: "amber",
+                    icon: "mdi-gesture-tap-button",
+                    subtitle: "Jan 10, 2014",
+                    title: "Kitchen remodel",
+                },
+            ],
+
             articles: [],
+            datacollection: null,
+
+            chartOptions: {
+                hoverBorderWidth: 20,
+            },
+            chartData: {
+                hoverBackgroundColor: "red",
+                hoverBorderWidth: 10,
+                labels: ["Green", "Red", "Blue"],
+                datasets: [
+                    {
+                        label: "Data One",
+                        backgroundColor: ["#41B883", "#E46651", "#00D8FF"],
+                        data: [1, 10, 5],
+                    },
+                ],
+            },
         };
     },
+
     methods: {
         handleSubmit() {
             console.log("Submit");
