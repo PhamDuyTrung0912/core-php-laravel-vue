@@ -20,6 +20,8 @@ Route::prefix('articles')->group(function () {
     Route::get('/{id}', 'App\Http\Controllers\ArticleController@show');
 
     Route::post('/', 'App\Http\Controllers\ArticleController@create');
+
+    Route::post('/upload', 'App\Http\Controllers\ArticleController@upload');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

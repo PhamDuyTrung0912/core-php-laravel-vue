@@ -46,6 +46,17 @@
                             </v-list-item>
                         </v-list>
                     </v-card>
+                    <v-card class="pa-4">
+                        <v-file-input
+                            v-model="upload"
+                            show-size
+                            label="File input"
+                            prepend-icon="mdi-camera"
+                        ></v-file-input>
+                        <v-btn @click="hanldeClickUpload" color="primary"
+                            >Submit</v-btn
+                        >
+                    </v-card>
                 </v-col>
             </v-row>
         </v-container>
@@ -59,6 +70,8 @@ export default {
     components: { LineChart },
     data() {
         return {
+            upload: null,
+
             files: [
                 {
                     color: "blue",
@@ -96,16 +109,17 @@ export default {
     },
 
     methods: {
-        handleSubmit() {
-            console.log("Submit");
-            const data = {
-                title: "Title create new",
-                description: "Desciption create new",
-            };
+        hanldeClickUpload() {
+            console.log("Submit", this.upload);
+
+            const data = new FormData();
+
+            data.append("attach", this.upload) || "";
+
             apiServices
-                .addArticle(data)
+                .uploadArticle(data)
                 .then((res) => {
-                    console.log("create-article", res.data);
+                    console.log("upload", res.data);
                 })
                 .catch();
         },

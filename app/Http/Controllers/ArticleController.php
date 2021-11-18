@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -33,5 +34,12 @@ class ArticleController extends Controller
                 'msg' => $e
             ]);
         }
+    }
+
+    public function upload(Request $request)
+    {
+        $googleDisk = Storage::disk('google');
+        $googleDisk->put('testabc.txt', 'Hello World');
+        error_log("Running" . json_encode($googleDisk));
     }
 }

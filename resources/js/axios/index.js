@@ -13,6 +13,10 @@ class APIService {
     addArticle(data){
         return this.axios.post("api/articles",data);
     }
+
+    uploadArticle(data){
+        return this.axios.post("api/articles/upload",data);
+    }
 }
 
 export default new APIService();
