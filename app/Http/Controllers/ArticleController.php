@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessagePosted;
 use App\Models\Article;
 use Exception;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ class ArticleController extends Controller
             ]);
 
             $article = Article::create($validateData);
+            broadcast(new MessagePosted($article))->toOthers();
             return response()->json($article);
         } catch (Exception $e) {
             return response(500)->json([

@@ -15,15 +15,13 @@
                     <v-card class="mx-auto">
                         <v-list subheader two-line>
                             <v-list-item
-                                v-for="file in files"
-                                :key="file.title"
+                                v-for="(file, index) in articles"
+                                :key="index"
                             >
                                 <v-list-item-avatar>
-                                    <v-icon
-                                        :class="file.color"
-                                        dark
-                                        v-text="file.icon"
-                                    ></v-icon>
+                                    <v-icon class="blue" dark
+                                        >mdi-clipboard-text</v-icon
+                                    >
                                 </v-list-item-avatar>
 
                                 <v-list-item-content>
@@ -32,7 +30,7 @@
                                     ></v-list-item-title>
 
                                     <v-list-item-subtitle
-                                        v-text="file.subtitle"
+                                        v-text="file.description"
                                     ></v-list-item-subtitle>
                                 </v-list-item-content>
 
@@ -59,6 +57,11 @@
                     </v-card>
                 </v-col>
             </v-row>
+            <v-card>
+                <v-btn @click="handleAddArticle" color="primary"
+                    >Add Article</v-btn
+                >
+            </v-card>
         </v-container>
     </v-app>
 </template>
@@ -109,6 +112,18 @@ export default {
     },
 
     methods: {
+        handleAddArticle() {
+            const data = {
+                title: "them moi 1",
+                description: "mo ta 1",
+            };
+            apiServices
+                .addArticle(data)
+                .then((res) => {
+                    console.log("res-add", res.data);
+                })
+                .catch();
+        },
         hanldeClickUpload() {
             console.log("Submit", this.upload);
 
@@ -132,6 +147,13 @@ export default {
                 this.articles = res.data;
             })
             .catch();
+        Echo.channel("laravel_database_chatroom").listen(
+            "MessagePosted",
+            (data) => {
+                console.log("data-realtime", data);
+                this.articles.push(data.article);
+            }
+        );
     },
 };
 </script>

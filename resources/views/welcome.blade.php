@@ -26,6 +26,7 @@
 <body class="antialiased">
     <div id="app">
     </div>
+    <script src="http://localhost:6001/socket.io/socket.io.js"></script>
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 
