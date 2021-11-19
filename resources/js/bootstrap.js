@@ -36,6 +36,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
      host: window.location.hostname + ':6001'
  });
 
+ console.log(window.location.hostname + ':6001');
+
 // import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');
