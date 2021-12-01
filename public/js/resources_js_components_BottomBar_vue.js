@@ -48,7 +48,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {};
+  },
+  methods: {
+    redirectPage: function redirectPage(name) {
+      if (name !== this.$route.name) this.$router.push({
+        name: name
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -68,7 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-app-bar[data-v-62a3a7e6] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-app-bar[data-v-62a3a7e6] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\n}\n.menu-item[data-v-62a3a7e6] {\r\n    height: 100%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -211,83 +291,172 @@ var render = function () {
     [
       _c(
         "v-row",
-        { attrs: { "no-gutters": "" } },
+        { staticClass: "menu-item", attrs: { "no-gutters": "" } },
         [
-          _c("v-col", { attrs: { cols: "4" } }, [
-            _c(
-              "div",
-              { staticClass: "d-flex flex-column align-center justify-center" },
-              [
-                _c(
-                  "div",
-                  [
-                    _c("v-icon", { attrs: { color: "primary" } }, [
-                      _vm._v("mdi-clipboard-outline"),
-                    ]),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "text-body-2 font-weight-bold primary--text" },
-                  [_vm._v("\n                    Order\n                ")]
-                ),
-              ]
-            ),
-          ]),
+          _c(
+            "v-col",
+            {
+              class:
+                _vm.$route.name === "order"
+                  ? "d-flex align-center justify-center primary"
+                  : "d-flex align-center justify-center",
+              attrs: { cols: "4" },
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "d-flex flex-column align-center justify-center",
+                  on: {
+                    click: function ($event) {
+                      return _vm.redirectPage("order")
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: {
+                            color:
+                              _vm.$route.name === "order" ? "white" : "primary",
+                          },
+                        },
+                        [_vm._v("mdi-clipboard-outline")]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      class:
+                        _vm.$route.name === "order"
+                          ? "text-body-2 font-weight-bold white--text"
+                          : "text-body-2 font-weight-bold primary--text",
+                    },
+                    [_vm._v("\n                    Order\n                ")]
+                  ),
+                ]
+              ),
+            ]
+          ),
           _vm._v(" "),
-          _c("v-col", { attrs: { cols: "4" } }, [
-            _c(
-              "div",
-              { staticClass: "d-flex flex-column align-center justify-center" },
-              [
-                _c(
-                  "div",
-                  [
-                    _c("v-icon", { attrs: { color: "primary" } }, [
-                      _vm._v("mdi-home-outline"),
-                    ]),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "text-body-2 font-weight-bold primary--text" },
-                  [_vm._v("\n                    Home\n                ")]
-                ),
-              ]
-            ),
-          ]),
+          _c(
+            "v-col",
+            {
+              class:
+                _vm.$route.name === "home"
+                  ? "d-flex align-center justify-center primary"
+                  : "d-flex align-center justify-center",
+              attrs: { cols: "4" },
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "d-flex flex-column align-center justify-center",
+                  on: {
+                    click: function ($event) {
+                      return _vm.redirectPage("home")
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: {
+                            color:
+                              _vm.$route.name === "home" ? "white" : "primary",
+                          },
+                        },
+                        [_vm._v("mdi-home-outline")]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      class:
+                        _vm.$route.name === "home"
+                          ? "text-body-2 font-weight-bold white--text"
+                          : "text-body-2 font-weight-bold primary--text",
+                    },
+                    [_vm._v("\n                    Home\n                ")]
+                  ),
+                ]
+              ),
+            ]
+          ),
           _vm._v(" "),
-          _c("v-col", { attrs: { cols: "4" } }, [
-            _c(
-              "div",
-              { staticClass: "d-flex flex-column align-center justify-center" },
-              [
-                _c(
-                  "div",
-                  [
-                    _c("v-icon", { attrs: { color: "primary" } }, [
-                      _vm._v("mdi-chart-line"),
-                    ]),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "text-body-2 font-weight-bold primary--text" },
-                  [
-                    _vm._v(
-                      "\n                    Statistical\n                "
-                    ),
-                  ]
-                ),
-              ]
-            ),
-          ]),
+          _c(
+            "v-col",
+            {
+              class:
+                _vm.$route.name === "static"
+                  ? "d-flex align-center justify-center primary"
+                  : "d-flex align-center justify-center",
+              attrs: { cols: "4" },
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "d-flex flex-column align-center justify-center",
+                  on: {
+                    click: function ($event) {
+                      return _vm.redirectPage("static")
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: {
+                            color:
+                              _vm.$route.name === "static"
+                                ? "white"
+                                : "primary",
+                          },
+                        },
+                        [_vm._v("mdi-chart-line")]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      class:
+                        _vm.$route.name === "static"
+                          ? "text-body-2 font-weight-bold white--text"
+                          : "text-body-2 font-weight-bold primary--text",
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Statistical\n                "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+            ]
+          ),
         ],
         1
       ),
