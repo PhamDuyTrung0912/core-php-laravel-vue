@@ -11,7 +11,7 @@ export default new Vuetify({
         options: { customProperties: true },
         themes: {
             light: {
-                primary: "#3C8DBC",
+                primary: "#394B60",
                 secondary: "#2196f3",
                 tertiary: "#FFFFFF",
                 accent: "#3C8DBC",
