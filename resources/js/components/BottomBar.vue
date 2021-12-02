@@ -11,14 +11,12 @@
                 cols="4"
                 :class="
                     $route.name === 'order'
-                        ? 'd-flex align-center justify-center primary'
-                        : 'd-flex align-center justify-center'
+                        ? 'd-flex align-center justify-center primary cursor'
+                        : 'd-flex align-center justify-center cursor'
                 "
+                @click="redirectPage('order')"
             >
-                <div
-                    @click="redirectPage('order')"
-                    class="d-flex flex-column align-center justify-center"
-                >
+                <div class="d-flex flex-column align-center justify-center">
                     <div>
                         <v-icon
                             :color="
@@ -42,14 +40,12 @@
                 cols="4"
                 :class="
                     $route.name === 'home'
-                        ? 'd-flex align-center justify-center primary'
-                        : 'd-flex align-center justify-center'
+                        ? 'd-flex align-center justify-center primary cursor'
+                        : 'd-flex align-center justify-center cursor'
                 "
+                @click="redirectPage('home')"
             >
-                <div
-                    @click="redirectPage('home')"
-                    class="d-flex flex-column align-center justify-center"
-                >
+                <div class="d-flex flex-column align-center justify-center">
                     <div>
                         <v-icon
                             :color="
@@ -73,14 +69,12 @@
                 cols="4"
                 :class="
                     $route.name === 'static'
-                        ? 'd-flex align-center justify-center primary'
-                        : 'd-flex align-center justify-center'
+                        ? 'd-flex align-center justify-center primary cursor'
+                        : 'd-flex align-center justify-center cursor'
                 "
+                @click="redirectPage('static')"
             >
-                <div
-                    @click="redirectPage('static')"
-                    class="d-flex flex-column align-center justify-center"
-                >
+                <div class="d-flex flex-column align-center justify-center">
                     <div>
                         <v-icon
                             :color="
@@ -125,5 +119,9 @@ export default {
 }
 .menu-item {
     height: 100%;
+}
+
+.cursor {
+    cursor: pointer;
 }
 </style>>

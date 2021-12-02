@@ -1,8 +1,8 @@
 <template>
     <v-app app>
-        <app-bar />
+        <app-bar v-if="checkRoute($route.name)" />
         <router-view class="content" />
-        <bottom-bar />
+        <bottom-bar v-if="checkRoute($route.name)" />
     </v-app>
 </template>
 
@@ -21,12 +21,19 @@ export default {
         return {};
     },
 
-    methods: {},
+    methods: {
+        checkRoute(route) {
+            if (route) {
+                if (route == "login" || route == "errorPage") return false;
+                return true;
+            }
+            return false;
+        },
+    },
 };
 </script>
 
 <style scoped>
-
 .v-application {
     font-family: "Cairo", sans-serif !important;
 }
@@ -36,6 +43,6 @@ export default {
 
 .content {
     margin-top: 50px;
-    margin-bottom:55px ;
+    margin-bottom: 55px;
 }
 </style>>

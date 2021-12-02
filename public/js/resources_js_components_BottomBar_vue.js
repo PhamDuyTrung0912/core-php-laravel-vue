@@ -111,12 +111,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
@@ -148,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-app-bar[data-v-62a3a7e6] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\n}\n.menu-item[data-v-62a3a7e6] {\r\n    height: 100%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-app-bar[data-v-62a3a7e6] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\n}\n.menu-item[data-v-62a3a7e6] {\r\n    height: 100%;\n}\n.cursor[data-v-62a3a7e6] {\r\n    cursor: pointer;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -298,20 +292,20 @@ var render = function () {
             {
               class:
                 _vm.$route.name === "order"
-                  ? "d-flex align-center justify-center primary"
-                  : "d-flex align-center justify-center",
+                  ? "d-flex align-center justify-center primary cursor"
+                  : "d-flex align-center justify-center cursor",
               attrs: { cols: "4" },
+              on: {
+                click: function ($event) {
+                  return _vm.redirectPage("order")
+                },
+              },
             },
             [
               _c(
                 "div",
                 {
                   staticClass: "d-flex flex-column align-center justify-center",
-                  on: {
-                    click: function ($event) {
-                      return _vm.redirectPage("order")
-                    },
-                  },
                 },
                 [
                   _c(
@@ -351,20 +345,20 @@ var render = function () {
             {
               class:
                 _vm.$route.name === "home"
-                  ? "d-flex align-center justify-center primary"
-                  : "d-flex align-center justify-center",
+                  ? "d-flex align-center justify-center primary cursor"
+                  : "d-flex align-center justify-center cursor",
               attrs: { cols: "4" },
+              on: {
+                click: function ($event) {
+                  return _vm.redirectPage("home")
+                },
+              },
             },
             [
               _c(
                 "div",
                 {
                   staticClass: "d-flex flex-column align-center justify-center",
-                  on: {
-                    click: function ($event) {
-                      return _vm.redirectPage("home")
-                    },
-                  },
                 },
                 [
                   _c(
@@ -404,20 +398,20 @@ var render = function () {
             {
               class:
                 _vm.$route.name === "static"
-                  ? "d-flex align-center justify-center primary"
-                  : "d-flex align-center justify-center",
+                  ? "d-flex align-center justify-center primary cursor"
+                  : "d-flex align-center justify-center cursor",
               attrs: { cols: "4" },
+              on: {
+                click: function ($event) {
+                  return _vm.redirectPage("static")
+                },
+              },
             },
             [
               _c(
                 "div",
                 {
                   staticClass: "d-flex flex-column align-center justify-center",
-                  on: {
-                    click: function ($event) {
-                      return _vm.redirectPage("static")
-                    },
-                  },
                 },
                 [
                   _c(

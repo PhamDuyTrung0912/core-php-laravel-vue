@@ -22,7 +22,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    handleCLickLogout: function handleCLickLogout() {
+      console.log("log-out");
+      this.$router.push({
+        name: 'login'
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -176,10 +195,48 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-sheet", {
-    staticClass: "custom-app-bar",
-    attrs: { height: "50", width: "100%", elevation: "0", color: "primary" },
-  })
+  return _c(
+    "v-sheet",
+    {
+      staticClass: "custom-app-bar d-flex justify-space-between",
+      attrs: { height: "50", width: "100%", elevation: "0", color: "primary" },
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "d-flex align-center mx-2" },
+        [
+          _c("v-avatar", { attrs: { color: "white", size: "35" } }, [
+            _c("span", { staticClass: "primary--text text-body-2" }, [
+              _vm._v("TP"),
+            ]),
+          ]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex align-center mx-2" },
+        [
+          _c(
+            "v-btn",
+            {
+              attrs: { fab: "", height: "35", width: "35" },
+              on: { click: _vm.handleCLickLogout },
+            },
+            [
+              _c("v-icon", { attrs: { color: "primary" } }, [
+                _vm._v(" mdi-logout "),
+              ]),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
